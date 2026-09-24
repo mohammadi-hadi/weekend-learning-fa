@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حدس کلمه‌ی بعدی | یادگیری آخر هفته</title>
+<meta name="description" content="مدل زبانی به هر ادامه‌ی ممکن یک احتمال می‌دهد و یکی را می‌نویسد، چه درست باشد چه غلط.">
+<meta name="author" content="هادی محمدی">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="یادگیری آخر هفته">
+<meta property="og:title" content="حدس کلمه‌ی بعدی">
+<meta property="og:description" content="مدل زبانی به هر ادامه‌ی ممکن یک احتمال می‌دهد و یکی را می‌نویسد، چه درست باشد چه غلط.">
+<meta property="og:image" content="https://mohammadi.cv/weekend-learning-fa/assets/logo.png">
+<link rel="icon" type="image/png" href="../assets/icon-96.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-head col">
+<a class="brand" href="../index.html"><img src="../assets/icon-96.png" alt="" width="32" height="32"><span>یادگیری آخر هفته</span></a>
+</header>
+
+<main class="col">
+
+<p class="kicker">درس ۱</p>
+<h1>حدس کلمه‌ی بعدی</h1>
+<p class="standfirst">نیمه‌ی دوم «هر که بامش بیش» خودبه‌خود یادتان آمد؛ مدل پشت چت‌جی‌پی‌تی هم فقط همین کار را می‌کند.</p>
+
+<nav aria-label="چهار شکل این درس">
+<ul class="ways">
+<li><a href="#read">بخوانید</a></li>
+<li><a href="#play">بازی کنید</a></li>
+<li><a href="#run">اجرا کنید</a></li>
+<li><a href="#take">با خود ببرید</a></li>
+</ul>
+</nav>
+
+<!-- The text from here to the glossary is newsletter issue 1, word for word.
+     build.py reports any block of the issue that is missing from this page.
+     Five blocks differ on purpose, so the report lists these five:
+     - the bio «من هادی محمدی هستم...» sits on the hub, not here;
+     - the glossary heading reads «واژه‌نامه‌ی این درس», not «این شماره»;
+     - the five-second task asks for LinkedIn comments, so it is left out;
+     - the teaser reads «درس بعد:» and drops the issue's date;
+     - «موضوع شماره‌ی بعد است» reads «موضوع درس بعد است». -->
+
+<h2 id="read">شما هم مثل مدل، ادامه را حدس می‌زنید</h2>
+
+<p>این‌ها را در ذهنتان تمام کنید:</p>
+
+<ul>
+<li>از تو حرکت،</li>
+<li>کبوتر با کبوتر،</li>
+<li>تا تنور گرم است،</li>
+<li>قطره قطره جمع گردد،</li>
+</ul>
+
+<p>ادامه‌ی هر کدام فوری یادتان آمد، چون صدها بار شنیده‌اید. حالا «امروز صبح رفتم» را تمام کنید. این بار جواب‌ها یکی نیست: یکی می‌گوید نانوایی، یکی دانشگاه، یکی سر کار؛ همه‌شان هم درست‌اند.</p>
+
+<p>مدل زبانی بزرگ <span lang="en">(large language model)</span>، یعنی برنامه‌ی پشت چت‌جی‌پی‌تی، در اصل فقط همین کار را می‌کند. متنی را که تا اینجا نوشته شده می‌بیند، کلمه‌ی بعدی را حدس می‌زند، آن را به متن اضافه می‌کند و دوباره حدس می‌زند. هر جواب بلند چت‌جی‌پی‌تی همین یک قدم است که بارها پشت سر هم تکرار شده.</p>
+
+<h2>مدل به هر ادامه‌ی ممکن یک احتمال می‌دهد</h2>
+
+<p>همین بازی را روی لپ‌تاپ خودم و بدون اینترنت با مدل کوچکی از همین نوع به اسم «آیا اکسپنس» <span class="nw" lang="en">(aya-expanse:8b)</span> کردم و نیمه‌ی اول ۱۲ ضرب‌المثل را به آن دادم. مدل در هر قدم به هر ادامه‌ی ممکن یک احتمال <span lang="en">(probability)</span> می‌دهد و بعد یکی را می‌نویسد.</p>
+
+<p>بعد از «هر که بامش بیش،» مدل به «بر» احتمال ۹۹٫۹٪ داد، یعنی تقریباً مطمئن بود. «بر» اولِ «برفش» است؛ مدل این کلمه را تکه‌تکه نوشت: «بر» و «ف» و «ش». اینکه چرا کلمه را تکه می‌کند، موضوع درس بعد است.</p>
+
+<p>اما بعد از «امروز صبح رفتم» مدل مطمئن نبود. محتمل‌ترین تکه «سر» بود، آن هم فقط با ۶٪ احتمال؛ «بازار» ۴٪ داشت و «دانشگاه» ۲٪. درست مثل آدم‌ها: وقتی ادامه‌ی جمله معلوم نیست، هر کس چیزی می‌گوید.</p>
+
+<section class="lab" id="play" data-lab="next-piece" aria-labelledby="play-title">
+<h2 id="play-title">خودتان ببینید مدل بعد از هر نیمه چه حدس زد</h2>
+<p>یکی از نیمه‌ها را انتخاب کنید تا ده تکه‌ای را ببینید که مدل بعد از آن از همه محتمل‌تر می‌دانست. طول هر نوار احتمال همان تکه است و نوار پر یعنی صددرصد.</p>
+<p class="note">این اعداد را مدل «آیا اکسپنس» <span class="nw" lang="en">(aya-expanse:8b)</span> روی لپ‌تاپ خودم و بدون اینترنت داده است و در هر قدم محتمل‌ترین تکه را نوشته است. هر تکه ممکن است فقط بخشی از یک کلمه باشد.</p>
+<div data-picker></div>
+<div class="result" data-result aria-live="polite"></div>
+<noscript><p class="note">این بخش با جاوااسکریپت کار می‌کند که در مرورگر شما خاموش است. همین اعداد در <a href="data.json">فایل داده‌های درس</a> هم هست.</p></noscript>
+</section>
+
+<h2>روان بودن متن دلیل درست بودنش نیست</h2>
+
+<p>از این ۱۲ ضرب‌المثل، مدل فقط «هر که بامش بیش» را همان‌طور تمام کرد که ما می‌گوییم. بعد از «تا تنور گرم است،» نوشت «آشپزخانه سرد است». جمله روان است، ولی ربطی به ضرب‌المثل ندارد. حتی محتمل‌ترین تکه‌ی اول فقط ۳٪ احتمال داشت، اما در جمله هیچ نشانی از این تردید نیست.</p>
+
+<p>چت‌بات‌ها جواب‌های غلطشان را هم همین‌طور می‌نویسند. هر کلمه با کلمه‌های قبلی جور است، پس متن روان درمی‌آید؛ ولی در هیچ قدمی بررسی نمی‌شود که حرف درست است یا نه. مدلی که من امتحان کردم کوچک بود و مدل‌های بزرگ پشت چت‌بات‌ها را نسنجیده‌ام، ولی آن‌ها هم با همین روش می‌نویسند.</p>
+
+<h2>مدل در هیچ کتابی دنبال جواب نمی‌گردد</h2>
+
+<p>خیلی‌ها فکر می‌کنند مدل جواب را از جایی پیدا می‌کند. اگر در کتاب ضرب‌المثل‌ها می‌گشت، یازده تای دیگر را هم درست تمام می‌کرد. مدل قبلاً با حدس زدن کلمه‌ی بعدی در حجم عظیمی از متن یاد گرفته که چه ادامه‌ای محتمل است.</p>
+
+<p>رد پای آن متن‌ها پیداست: بعد از «برفش بیشتر» نوشت «پایگاه خبری»، مثل تیتر یک سایت. بعضی چت‌بات‌ها اول در اینترنت جست‌وجو می‌کنند، ولی جواب را باز با همین حدس می‌نویسند.</p>
+
+<h2>ده دقیقه با قلم و کاغذ</h2>
+
+<p>نیمه‌ی اول شش ضرب‌المثل و دو جمله‌ی نیمه‌تمام را روی کاغذ بنویسید و از سه نفر از اطرافیانتان بخواهید تمامشان کنند. برای هر کدام بشمارید هر جواب را چند نفر داده‌اند: سه جواب یکسان مثل «بر» است و سه جواب مختلف مثل «امروز صبح رفتم».</p>
+
+<p>بعد با یک کلمه شروع کنید، از جمع بپرسید کلمه‌ی بعدی چیست، پرتکرارترین جواب را بنویسید و دوباره بپرسید. چند دور که بگذرد، جمله‌ای ساخته‌اید که هیچ‌کس به‌تنهایی ننوشته است.</p>
+
+<section class="lab" id="count" data-lab="bigram" aria-labelledby="count-title">
+<h2 id="count-title">کلمه‌ی بعدی را در متن خودتان بشمارید</h2>
+<p>همین شمارش را مرورگرتان هم انجام می‌دهد. متنی بنویسید یا بچسبانید و در خانه‌ی «کلمه» یک کلمه بنویسید تا ببینید بعد از آن چه کلمه‌هایی آمده و هر کدام چند بار. روی هر کلمه بزنید تا به جمله اضافه شود و شمارش از آن کلمه ادامه پیدا کند.</p>
+<label class="lab-label" for="bigram-text">متن</label>
+<textarea class="field" id="bigram-text" data-text rows="5" dir="rtl">امروز صبح رفتم نانوایی. امروز صبح رفتم دانشگاه. امروز صبح رفتم سر کار. دیروز رفتم سر کلاس. دیروز با دوستم رفتم بازار. فردا صبح می‌روم سر کار.</textarea>
+<label class="lab-label" for="bigram-word">کلمه</label>
+<div class="word-row">
+<input id="bigram-word" type="text" data-word value="رفتم" autocomplete="off" spellcheck="false" dir="rtl">
+<button type="button" class="btn" data-add-top>افزودن پرتکرارترین کلمه</button>
+<button type="button" class="btn" data-restart>از نو</button>
+</div>
+<p class="chain"><span class="said">جمله‌ی شما: </span><span data-chain></span></p>
+<div data-counts aria-live="polite"></div>
+<p class="note">این شمارش فقط کلمه‌ی قبلی را می‌بیند، ولی مدل زبانی همه‌ی متنی را که تا اینجا نوشته شده می‌بیند.</p>
+<noscript><p class="note">این بخش با جاوااسکریپت کار می‌کند که در مرورگر شما خاموش است.</p></noscript>
+</section>
+
+<h2>واژه‌نامه‌ی این درس</h2>
+
+<ul class="glossary">
+<li><b>مدل زبانی بزرگ <span lang="en">(large language model)</span>:</b> برنامه‌ای که از روی حجم عظیمی از متن یاد گرفته کلمه‌ی بعدی را حدس بزند.</li>
+<li><b>احتمال <span lang="en">(probability)</span>:</b> اینکه یک ادامه چقدر شانس دارد، از صفر تا صددرصد. جمع احتمال همه‌ی ادامه‌ها صددرصد می‌شود.</li>
+<li><b>توکن <span lang="en">(token)</span>:</b> تکه‌ای از متن که مدل با آن کار می‌کند، گاهی یک کلمه و گاهی بخشی از آن، مثل «بر» در «برفش».</li>
+</ul>
+
+<p>بقیه‌ی نوشته‌هایم <a href="https://mohammadi.cv/">در وب‌سایتم</a> هست. «یادگیری آخر هفته» خواهر فارسی خبرنامه‌ی انگلیسی‌ام <a href="https://www.linkedin.com/newsletters/weekend-learning-7044258763238731776/" lang="en">Weekend Learning</a> است که درباره‌ی ارزیابی مدل‌هاست و در هفته‌هایی می‌آید که این یکی نمی‌آید.</p>
+
+<p class="next"><b>درس بعد:</b> چرا مدل «برفش» را سه تکه نوشت و چرا همین تکه‌ها متن فارسی را برای مدل‌ها گران‌تر از انگلیسی می‌کنند.</p>
+
+<h2 id="run">این درس را اجرا کنید و با خود ببرید</h2>
+
+<p>دفترچه‌ی ژوپیتر <span class="nw" lang="en">(Jupyter notebook)</span> این درس جز خود پایتون <span lang="en">(Python)</span> به چیز دیگری نیاز ندارد و بدون اینترنت اجرا می‌شود. <a href="01-next-word.ipynb" download>فایل دفترچه</a> را دانلود کنید یا آن را <a href="https://github.com/mohammadi-hadi/weekend-learning-fa/blob/main/01-next-word/01-next-word.ipynb">در گیت‌هاب</a> ببینید.</p>
+
+<p id="take">کل درس، با همین صفحه و ابزارها و داده‌هایش، در یک فایل زیپ هم هست. <a href="01-next-word-offline.zip" download>فایل زیپ درس</a> <span data-zip-size="01-next-word">(حدود ۷۸ کیلوبایت)</span> را دانلود و از حالت فشرده خارج کنید، بعد فایل <span lang="en">index.html</span> را در مرورگر باز کنید؛ اینترنت لازم نیست.</p>
+
+<p>درس‌های تازه هر دو هفته یک بار، جمعه‌ها، در <a href="https://www.linkedin.com/newsletters/7508807306889863168/">خبرنامه‌ی یادگیری آخر هفته در لینکدین</a> می‌آیند.</p>
+
+</main>
+
+<footer class="site-foot">
+<div class="col">
+<p><a href="../index.html">همه‌ی درس‌های یادگیری آخر هفته</a></p>
+<p>هادی محمدی</p>
+</div>
+</footer>
+
+<script type="application/json" id="lesson-data">{"lesson":"01-next-word","model":"aya-expanse:8b","parameters":"8.0B","quantization":"Q4_K_M","runner":"Ollama 0.33.3","run_date":"2026-09-24","settings":"offline, raw prompt with no chat template, temperature 0, seed 0","about":"p is the probability the model gave each of its top 10 candidates for the next token, right after the prompt. A token is a piece of text, often part of a word; a leading space means it starts a new word. The model's own continuation (temperature 0) is kept for three prompts only, cut before any ' - ' or ' | ' separator.","summary":{"proverbs_tried":12,"model_wrote_usual_ending":1},"prompts":[{"kind":"proverb","prompt":"هر که بامش بیش،","usual_ending":"برفش بیشتر","model_wrote_usual_ending":true,"top10":[{"token":" بر","p":0.9991},{"token":" برد","p":0.0006},{"token":"بر","p":0.0001},{"token":" وبر","p":0.0001},{"token":" برج","p":0.0},{"token":" در","p":0.0},{"token":" آس","p":0.0},{"token":" برون","p":0.0},{"token":" خر","p":0.0},{"token":" براد","p":0.0}],"continuation":" برفش بیشتر"},{"kind":"proverb","prompt":"از تو حرکت،","usual_ending":"از خدا برکت","model_wrote_usual_ending":false,"top10":[{"token":" از","p":0.1674},{"token":" من","p":0.056},{"token":" به","p":0.0423},{"token":" تا","p":0.0279},{"token":" تو","p":0.0144},{"token":" ","p":0.0142},{"token":" یک","p":0.0128},{"token":" ما","p":0.0122},{"token":" با","p":0.0108},{"token":" جهان","p":0.0096}]},{"kind":"proverb","prompt":"کبوتر با کبوتر،","usual_ending":"باز با باز","model_wrote_usual_ending":false,"top10":[{"token":" به","p":0.0662},{"token":" ","p":0.0598},{"token":" ک","p":0.0477},{"token":" یک","p":0.0423},{"token":" یا","p":0.0327},{"token":" در","p":0.03},{"token":" با","p":0.0251},{"token":" فیلم","p":0.0195},{"token":" و","p":0.0163},{"token":" از","p":0.0137}]},{"kind":"proverb","prompt":"قطره قطره جمع گردد،","usual_ending":"وانگهی دریا شود","model_wrote_usual_ending":false,"top10":[{"token":" به","p":0.0768},{"token":" تا","p":0.0391},{"token":" آب","p":0.0264},{"token":" گ","p":0.0245},{"token":" و","p":0.0238},{"token":" ش","p":0.0226},{"token":" کتاب","p":0.0153},{"token":" در","p":0.0149},{"token":" ب","p":0.0138},{"token":" انقلاب","p":0.0129}]},{"kind":"proverb","prompt":"شنیدن کی بود","usual_ending":"مانند دیدن","model_wrote_usual_ending":false,"top10":[{"token":"ی","p":0.4047},{"token":" که","p":0.1451},{"token":"؟","p":0.1279},{"token":" و","p":0.027},{"token":"،","p":0.0244},{"token":" -","p":0.0207},{"token":":","p":0.0196},{"token":" (","p":0.0137},{"token":" این","p":0.0131},{"token":" یک","p":0.0101}]},{"kind":"proverb","prompt":"دست بالای دست","usual_ending":"بسیار است","model_wrote_usual_ending":false,"top10":[{"token":"؛","p":0.2936},{"token":"،","p":0.1316},{"token":" در","p":0.0812},{"token":":","p":0.075},{"token":" -","p":0.0616},{"token":" (","p":0.0561},{"token":" ","p":0.0378},{"token":"‌","p":0.0273},{"token":" به","p":0.024},{"token":" با","p":0.0201}]},{"kind":"proverb","prompt":"نابرده رنج","usual_ending":"گنج میسر نمی‌شود","model_wrote_usual_ending":false,"top10":[{"token":" است","p":0.1585},{"token":" از","p":0.1268},{"token":":","p":0.0703},{"token":" و","p":0.0537},{"token":" (","p":0.046},{"token":" ","p":0.0346},{"token":"،","p":0.0291},{"token":" -","p":0.0273},{"token":" ها","p":0.0258},{"token":" نه","p":0.0247}]},{"kind":"proverb","prompt":"کار نیکو کردن","usual_ending":"از پر کردن است","model_wrote_usual_ending":false,"top10":[{"token":"،","p":0.1533},{"token":" در","p":0.1168},{"token":" و","p":0.0577},{"token":" با","p":0.0472},{"token":" |","p":0.0424},{"token":" به","p":0.0421},{"token":" را","p":0.0402},{"token":" -","p":0.0359},{"token":" برای","p":0.0336},{"token":"؛","p":0.0201}]},{"kind":"proverb","prompt":"جوینده","usual_ending":"یابنده است","model_wrote_usual_ending":false,"top10":[{"token":" ی","p":0.2487},{"token":"ٔ","p":0.0953},{"token":"‌","p":0.0725},{"token":" (","p":0.0564},{"token":" حقی","p":0.0518},{"token":" گ","p":0.0292},{"token":" ","p":0.0234},{"token":":","p":0.0179},{"token":" عشق","p":0.0133},{"token":" نور","p":0.0114}]},{"kind":"proverb","prompt":"یک دست","usual_ending":"صدا ندارد","model_wrote_usual_ending":false,"top10":[{"token":"ا","p":0.0919},{"token":"ش","p":0.0584},{"token":" به","p":0.0533},{"token":"مال","p":0.0523},{"token":"م","p":0.0379},{"token":" باز","p":0.0335},{"token":"کش","p":0.0332},{"token":" و","p":0.0329},{"token":"گی","p":0.0253},{"token":" دیگر","p":0.0184}],"continuation":"اورد بزرگ دیگر در راه است"},{"kind":"proverb","prompt":"تا تنور گرم است،","usual_ending":"نان را بچسبان","model_wrote_usual_ending":false,"top10":[{"token":" آش","p":0.0296},{"token":" ب","p":0.0293},{"token":" شع","p":0.0277},{"token":" ک","p":0.0212},{"token":" از","p":0.021},{"token":" شعر","p":0.0201},{"token":" پ","p":0.0174},{"token":" در","p":0.0157},{"token":" د","p":0.0155},{"token":" به","p":0.0148}],"continuation":" آشپزخانه سرد است"},{"kind":"proverb","prompt":"آب که از سر گذشت،","usual_ending":"چه یک وجب چه صد وجب","model_wrote_usual_ending":false,"top10":[{"token":" به","p":0.0821},{"token":" از","p":0.0551},{"token":" باز","p":0.0535},{"token":" بر","p":0.0527},{"token":" گ","p":0.0518},{"token":" بازگشت","p":0.032},{"token":" دوباره","p":0.0248},{"token":" دیگر","p":0.0233},{"token":" بی","p":0.022},{"token":" برگ","p":0.0219}]},{"kind":"open","prompt":"امروز صبح رفتم","top10":[{"token":" سر","p":0.0597},{"token":" بازار","p":0.0407},{"token":" به","p":0.0385},{"token":" خرید","p":0.0269},{"token":" تو","p":0.0235},{"token":" دانشگاه","p":0.0232},{"token":" یک","p":0.0227},{"token":" بانک","p":0.0212},{"token":" یه","p":0.0208},{"token":" کتابخانه","p":0.0194}]},{"kind":"open","prompt":"دیروز با دوستم","top10":[{"token":" در","p":0.1458},{"token":" که","p":0.0701},{"token":" به","p":0.064},{"token":" درباره","p":0.0429},{"token":" صح","p":0.0384},{"token":" داش","p":0.0339},{"token":" بود","p":0.0338},{"token":" تلف","p":0.0247},{"token":"،","p":0.0245},{"token":" گ","p":0.0242}]}]}</script>
+<script src="../assets/widget.js"></script>
+</body>
+</html>

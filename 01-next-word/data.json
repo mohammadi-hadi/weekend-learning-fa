@@ -1,0 +1,687 @@
+{
+ "lesson": "01-next-word",
+ "model": "aya-expanse:8b",
+ "parameters": "8.0B",
+ "quantization": "Q4_K_M",
+ "runner": "Ollama 0.33.3",
+ "run_date": "2026-09-24",
+ "settings": "offline, raw prompt with no chat template, temperature 0, seed 0",
+ "about": "p is the probability the model gave each of its top 10 candidates for the next token, right after the prompt. A token is a piece of text, often part of a word; a leading space means it starts a new word. The model's own continuation (temperature 0) is kept for three prompts only, cut before any ' - ' or ' | ' separator.",
+ "summary": {
+  "proverbs_tried": 12,
+  "model_wrote_usual_ending": 1
+ },
+ "prompts": [
+  {
+   "kind": "proverb",
+   "prompt": "هر که بامش بیش،",
+   "usual_ending": "برفش بیشتر",
+   "model_wrote_usual_ending": true,
+   "top10": [
+    {
+     "token": " بر",
+     "p": 0.9991
+    },
+    {
+     "token": " برد",
+     "p": 0.0006
+    },
+    {
+     "token": "بر",
+     "p": 0.0001
+    },
+    {
+     "token": " وبر",
+     "p": 0.0001
+    },
+    {
+     "token": " برج",
+     "p": 0.0
+    },
+    {
+     "token": " در",
+     "p": 0.0
+    },
+    {
+     "token": " آس",
+     "p": 0.0
+    },
+    {
+     "token": " برون",
+     "p": 0.0
+    },
+    {
+     "token": " خر",
+     "p": 0.0
+    },
+    {
+     "token": " براد",
+     "p": 0.0
+    }
+   ],
+   "continuation": " برفش بیشتر"
+  },
+  {
+   "kind": "proverb",
+   "prompt": "از تو حرکت،",
+   "usual_ending": "از خدا برکت",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " از",
+     "p": 0.1674
+    },
+    {
+     "token": " من",
+     "p": 0.056
+    },
+    {
+     "token": " به",
+     "p": 0.0423
+    },
+    {
+     "token": " تا",
+     "p": 0.0279
+    },
+    {
+     "token": " تو",
+     "p": 0.0144
+    },
+    {
+     "token": " ",
+     "p": 0.0142
+    },
+    {
+     "token": " یک",
+     "p": 0.0128
+    },
+    {
+     "token": " ما",
+     "p": 0.0122
+    },
+    {
+     "token": " با",
+     "p": 0.0108
+    },
+    {
+     "token": " جهان",
+     "p": 0.0096
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "کبوتر با کبوتر،",
+   "usual_ending": "باز با باز",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " به",
+     "p": 0.0662
+    },
+    {
+     "token": " ",
+     "p": 0.0598
+    },
+    {
+     "token": " ک",
+     "p": 0.0477
+    },
+    {
+     "token": " یک",
+     "p": 0.0423
+    },
+    {
+     "token": " یا",
+     "p": 0.0327
+    },
+    {
+     "token": " در",
+     "p": 0.03
+    },
+    {
+     "token": " با",
+     "p": 0.0251
+    },
+    {
+     "token": " فیلم",
+     "p": 0.0195
+    },
+    {
+     "token": " و",
+     "p": 0.0163
+    },
+    {
+     "token": " از",
+     "p": 0.0137
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "قطره قطره جمع گردد،",
+   "usual_ending": "وانگهی دریا شود",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " به",
+     "p": 0.0768
+    },
+    {
+     "token": " تا",
+     "p": 0.0391
+    },
+    {
+     "token": " آب",
+     "p": 0.0264
+    },
+    {
+     "token": " گ",
+     "p": 0.0245
+    },
+    {
+     "token": " و",
+     "p": 0.0238
+    },
+    {
+     "token": " ش",
+     "p": 0.0226
+    },
+    {
+     "token": " کتاب",
+     "p": 0.0153
+    },
+    {
+     "token": " در",
+     "p": 0.0149
+    },
+    {
+     "token": " ب",
+     "p": 0.0138
+    },
+    {
+     "token": " انقلاب",
+     "p": 0.0129
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "شنیدن کی بود",
+   "usual_ending": "مانند دیدن",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": "ی",
+     "p": 0.4047
+    },
+    {
+     "token": " که",
+     "p": 0.1451
+    },
+    {
+     "token": "؟",
+     "p": 0.1279
+    },
+    {
+     "token": " و",
+     "p": 0.027
+    },
+    {
+     "token": "،",
+     "p": 0.0244
+    },
+    {
+     "token": " -",
+     "p": 0.0207
+    },
+    {
+     "token": ":",
+     "p": 0.0196
+    },
+    {
+     "token": " (",
+     "p": 0.0137
+    },
+    {
+     "token": " این",
+     "p": 0.0131
+    },
+    {
+     "token": " یک",
+     "p": 0.0101
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "دست بالای دست",
+   "usual_ending": "بسیار است",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": "؛",
+     "p": 0.2936
+    },
+    {
+     "token": "،",
+     "p": 0.1316
+    },
+    {
+     "token": " در",
+     "p": 0.0812
+    },
+    {
+     "token": ":",
+     "p": 0.075
+    },
+    {
+     "token": " -",
+     "p": 0.0616
+    },
+    {
+     "token": " (",
+     "p": 0.0561
+    },
+    {
+     "token": " ",
+     "p": 0.0378
+    },
+    {
+     "token": "‌",
+     "p": 0.0273
+    },
+    {
+     "token": " به",
+     "p": 0.024
+    },
+    {
+     "token": " با",
+     "p": 0.0201
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "نابرده رنج",
+   "usual_ending": "گنج میسر نمی‌شود",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " است",
+     "p": 0.1585
+    },
+    {
+     "token": " از",
+     "p": 0.1268
+    },
+    {
+     "token": ":",
+     "p": 0.0703
+    },
+    {
+     "token": " و",
+     "p": 0.0537
+    },
+    {
+     "token": " (",
+     "p": 0.046
+    },
+    {
+     "token": " ",
+     "p": 0.0346
+    },
+    {
+     "token": "،",
+     "p": 0.0291
+    },
+    {
+     "token": " -",
+     "p": 0.0273
+    },
+    {
+     "token": " ها",
+     "p": 0.0258
+    },
+    {
+     "token": " نه",
+     "p": 0.0247
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "کار نیکو کردن",
+   "usual_ending": "از پر کردن است",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": "،",
+     "p": 0.1533
+    },
+    {
+     "token": " در",
+     "p": 0.1168
+    },
+    {
+     "token": " و",
+     "p": 0.0577
+    },
+    {
+     "token": " با",
+     "p": 0.0472
+    },
+    {
+     "token": " |",
+     "p": 0.0424
+    },
+    {
+     "token": " به",
+     "p": 0.0421
+    },
+    {
+     "token": " را",
+     "p": 0.0402
+    },
+    {
+     "token": " -",
+     "p": 0.0359
+    },
+    {
+     "token": " برای",
+     "p": 0.0336
+    },
+    {
+     "token": "؛",
+     "p": 0.0201
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "جوینده",
+   "usual_ending": "یابنده است",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " ی",
+     "p": 0.2487
+    },
+    {
+     "token": "ٔ",
+     "p": 0.0953
+    },
+    {
+     "token": "‌",
+     "p": 0.0725
+    },
+    {
+     "token": " (",
+     "p": 0.0564
+    },
+    {
+     "token": " حقی",
+     "p": 0.0518
+    },
+    {
+     "token": " گ",
+     "p": 0.0292
+    },
+    {
+     "token": " ",
+     "p": 0.0234
+    },
+    {
+     "token": ":",
+     "p": 0.0179
+    },
+    {
+     "token": " عشق",
+     "p": 0.0133
+    },
+    {
+     "token": " نور",
+     "p": 0.0114
+    }
+   ]
+  },
+  {
+   "kind": "proverb",
+   "prompt": "یک دست",
+   "usual_ending": "صدا ندارد",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": "ا",
+     "p": 0.0919
+    },
+    {
+     "token": "ش",
+     "p": 0.0584
+    },
+    {
+     "token": " به",
+     "p": 0.0533
+    },
+    {
+     "token": "مال",
+     "p": 0.0523
+    },
+    {
+     "token": "م",
+     "p": 0.0379
+    },
+    {
+     "token": " باز",
+     "p": 0.0335
+    },
+    {
+     "token": "کش",
+     "p": 0.0332
+    },
+    {
+     "token": " و",
+     "p": 0.0329
+    },
+    {
+     "token": "گی",
+     "p": 0.0253
+    },
+    {
+     "token": " دیگر",
+     "p": 0.0184
+    }
+   ],
+   "continuation": "اورد بزرگ دیگر در راه است"
+  },
+  {
+   "kind": "proverb",
+   "prompt": "تا تنور گرم است،",
+   "usual_ending": "نان را بچسبان",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " آش",
+     "p": 0.0296
+    },
+    {
+     "token": " ب",
+     "p": 0.0293
+    },
+    {
+     "token": " شع",
+     "p": 0.0277
+    },
+    {
+     "token": " ک",
+     "p": 0.0212
+    },
+    {
+     "token": " از",
+     "p": 0.021
+    },
+    {
+     "token": " شعر",
+     "p": 0.0201
+    },
+    {
+     "token": " پ",
+     "p": 0.0174
+    },
+    {
+     "token": " در",
+     "p": 0.0157
+    },
+    {
+     "token": " د",
+     "p": 0.0155
+    },
+    {
+     "token": " به",
+     "p": 0.0148
+    }
+   ],
+   "continuation": " آشپزخانه سرد است"
+  },
+  {
+   "kind": "proverb",
+   "prompt": "آب که از سر گذشت،",
+   "usual_ending": "چه یک وجب چه صد وجب",
+   "model_wrote_usual_ending": false,
+   "top10": [
+    {
+     "token": " به",
+     "p": 0.0821
+    },
+    {
+     "token": " از",
+     "p": 0.0551
+    },
+    {
+     "token": " باز",
+     "p": 0.0535
+    },
+    {
+     "token": " بر",
+     "p": 0.0527
+    },
+    {
+     "token": " گ",
+     "p": 0.0518
+    },
+    {
+     "token": " بازگشت",
+     "p": 0.032
+    },
+    {
+     "token": " دوباره",
+     "p": 0.0248
+    },
+    {
+     "token": " دیگر",
+     "p": 0.0233
+    },
+    {
+     "token": " بی",
+     "p": 0.022
+    },
+    {
+     "token": " برگ",
+     "p": 0.0219
+    }
+   ]
+  },
+  {
+   "kind": "open",
+   "prompt": "امروز صبح رفتم",
+   "top10": [
+    {
+     "token": " سر",
+     "p": 0.0597
+    },
+    {
+     "token": " بازار",
+     "p": 0.0407
+    },
+    {
+     "token": " به",
+     "p": 0.0385
+    },
+    {
+     "token": " خرید",
+     "p": 0.0269
+    },
+    {
+     "token": " تو",
+     "p": 0.0235
+    },
+    {
+     "token": " دانشگاه",
+     "p": 0.0232
+    },
+    {
+     "token": " یک",
+     "p": 0.0227
+    },
+    {
+     "token": " بانک",
+     "p": 0.0212
+    },
+    {
+     "token": " یه",
+     "p": 0.0208
+    },
+    {
+     "token": " کتابخانه",
+     "p": 0.0194
+    }
+   ]
+  },
+  {
+   "kind": "open",
+   "prompt": "دیروز با دوستم",
+   "top10": [
+    {
+     "token": " در",
+     "p": 0.1458
+    },
+    {
+     "token": " که",
+     "p": 0.0701
+    },
+    {
+     "token": " به",
+     "p": 0.064
+    },
+    {
+     "token": " درباره",
+     "p": 0.0429
+    },
+    {
+     "token": " صح",
+     "p": 0.0384
+    },
+    {
+     "token": " داش",
+     "p": 0.0339
+    },
+    {
+     "token": " بود",
+     "p": 0.0338
+    },
+    {
+     "token": " تلف",
+     "p": 0.0247
+    },
+    {
+     "token": "،",
+     "p": 0.0245
+    },
+    {
+     "token": " گ",
+     "p": 0.0242
+    }
+   ]
+  }
+ ]
+}
