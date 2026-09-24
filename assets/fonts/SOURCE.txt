@@ -1,0 +1,15 @@
+Vazirmatn-NL-Variable.woff2
+
+Vazirmatn by Saber Rastikerdar and the Vazirmatn Project Authors, version 33.003,
+licensed under the SIL Open Font License 1.1 (OFL.txt, next to this file).
+
+Taken unmodified from the official release:
+  https://github.com/rastikerdar/vazirmatn/releases/tag/v33.003
+  vazirmatn-v33.003.zip, sha256 0a9afd41967e6f57096a56a181a23f81a2b999b62f1f2a4e4b26736580854fdb
+  file misc/Non-Latin/fonts/webfonts/Vazirmatn-NL[wght].woff2 (47,972 bytes),
+  sha256 cdef5578ea583313cbea060a14aa107955a99717a861971b860cb564dfe1bbf5
+
+Only the file name changed (square brackets are awkward in URLs). This is the
+variable "Non-Latin" build: every weight from 100 to 900 in one file, with the
+Persian and Arabic glyphs, Persian digits and punctuation. Latin letters and
+digits fall back to the system font, which keeps the page light.
