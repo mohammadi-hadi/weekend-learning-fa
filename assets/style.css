@@ -303,3 +303,10 @@ textarea.field:focus,
 
 /* keeps a Latin name and its parentheses on one line */
 .nw { white-space: nowrap; }
+
+/* Lesson 02: token pieces */
+.pieces { list-style: none; padding: 0; margin: 0.4em 0 0.8em; display: flex; flex-wrap: wrap; gap: 6px; }
+.tok { border: 1px solid var(--rule); background: var(--track); border-radius: 4px; padding: 2px 8px; font-size: 1.05rem; line-height: 1.6; }
+.tok.sp { border-inline-start: 3px solid var(--accent); }
+.tok.half { border-style: dashed; color: var(--muted); font-size: 0.85rem; }
+.count { margin: 0.2em 0; }
