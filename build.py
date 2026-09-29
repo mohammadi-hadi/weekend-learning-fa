@@ -122,6 +122,55 @@ def next_word_data(src: dict) -> dict:
     }
 
 
+TOKENIZERS = {
+    # Only the two tokenizers the issue talks about. qwen2_5 is in the source
+    # file but matches a 2023 figure and is not mentioned in the text.
+    "cl100k_base": "توکن‌ساز قدیمی چت‌جی‌پی‌تی",
+    "o200k_base": "توکن‌ساز جدید چت‌جی‌پی‌تی",
+}
+WORDS = ["برفش", "هر که بامش بیش، برفش بیشتر"]
+
+
+def pieces_of(entry: dict) -> list[str]:
+    return list(entry["pieces"])
+
+
+def tokens_data(src: dict) -> dict:
+    ex = src["example"]
+    texts = [
+        {"id": "fa-sentence", "label": "جمله‌ی فارسی", "lang": "fa", "text": ex["fa"],
+         "by": {k: pieces_of(ex[k]["fa"]) for k in TOKENIZERS}},
+        {"id": "en-sentence", "label": "همان جمله به انگلیسی", "lang": "en", "text": ex["en"],
+         "by": {k: pieces_of(ex[k]["en"]) for k in TOKENIZERS}},
+    ]
+    for w in WORDS:
+        texts.append({"id": "word-" + str(len(texts)), "label": w, "lang": "fa", "text": w,
+                      "by": {k: pieces_of(src["words"][w][k]) for k in TOKENIZERS}})
+    for t in texts:
+        for k, pcs in t["by"].items():
+            if "".join(p for p in pcs if not p.startswith("<0x")) == "" or not pcs:
+                raise SystemExit(f"no pieces for {t['label']} under {k}")
+    corpus = {k: {"en_tokens": src["petrov_method"][k]["en_tokens"],
+                  "fa_tokens": src["petrov_method"][k]["fa_tokens"],
+                  "ratio": src["petrov_method"][k]["ratio"]} for k in TOKENIZERS}
+    return {
+        "lesson": "02-tokens",
+        "tokenizers": [{"id": k, "label": v} for k, v in TOKENIZERS.items()],
+        "about": (
+            "Pieces are what each tokenizer produces for the text, taken from "
+            "tiktoken. A piece that starts with a space begins a new word. A "
+            "piece shown as <0xD8> is one byte, half of a Persian letter. The "
+            "corpus ratio is Persian tokens over English tokens for the same "
+            "2009 FLORES-200 sentences, each language joined and encoded once."),
+        "example_source": "FLORES-200 devtest line " + str(ex["devtest_index_0_based"]),
+        "chars": ex["chars"],
+        "utf8_bytes": ex["utf8_bytes"],
+        "corpus_sentences": 2009,
+        "corpus": corpus,
+        "texts": texts,
+    }
+
+
 @dataclass
 class Lesson:
     slug: str
@@ -145,6 +194,8 @@ class Lesson:
 LESSONS = [
     Lesson("01-next-word", "issues/001-next-word.html",
            "data/001-proverbs.json", next_word_data),
+    Lesson("02-tokens", "issues/002-tokens.html",
+           "data/002-tokens.json", tokens_data),
 ]
 
 
