@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عددهایی به اسم پارامتر | یادگیری آخر هفته</title>
+<meta name="description" content="مدل فرمولی است با چند عدد قابل تنظیم؛ یادگیری یعنی پیدا کردن عددهایی که با مثال‌های معلوم جور درمی‌آیند.">
+<meta name="author" content="هادی محمدی">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="یادگیری آخر هفته">
+<meta property="og:title" content="عددهایی به اسم پارامتر">
+<meta property="og:description" content="مدل فرمولی است با چند عدد قابل تنظیم؛ یادگیری یعنی پیدا کردن عددهایی که با مثال‌های معلوم جور درمی‌آیند.">
+<meta property="og:image" content="https://mohammadi.cv/weekend-learning-fa/assets/logo.png">
+<link rel="icon" type="image/png" href="../assets/icon-96.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-head col">
+<a class="brand" href="../index.html"><img src="../assets/icon-96.png" alt="" width="32" height="32"><span>یادگیری آخر هفته</span></a>
+</header>
+
+<main class="col">
+
+<p class="kicker">درس ۳</p>
+<h1>عددهایی به اسم پارامتر</h1>
+<p class="standfirst">از روی کرایه‌ی چند سفر قبلی، کرایه‌ی سفر بعدی را حدس می‌زنید؛ یادگیری ماشین هم همین کار را می‌کند.</p>
+
+<nav aria-label="چهار شکل این درس">
+<ul class="ways">
+<li><a href="#read">بخوانید</a></li>
+<li><a href="#play">بازی کنید</a></li>
+<li><a href="#run">اجرا کنید</a></li>
+<li><a href="#take">با خود ببرید</a></li>
+</ul>
+</nav>
+
+<!-- The text from here to the glossary is newsletter issue 3, word for word.
+     build.py reports any block of the issue that is missing from this page.
+     These blocks differ on purpose:
+     - «در شماره‌ی اول» reads «در درس اول», «در شماره‌ی قبل» reads «در درس
+       قبل», and «تاکسی این شماره» reads «تاکسی این درس»;
+     - the glossary heading reads «واژه‌نامه‌ی این درس», not «این شماره»;
+     - the link line «این درس صفحه‌ای هم در وب‌سایتم دارد ...» is left out,
+       since this is that page;
+     - the five-second task asks for LinkedIn comments, so it is left out;
+     - the teaser reads «درس بعد:» and drops the issue's date. -->
+
+<p id="read">شش سفر با یک تاکسی، مسافت هر سفر و کرایه‌اش به هزار تومان:</p>
+
+<ul>
+<li>۲ کیلومتر، ۴۷</li>
+<li>۳ کیلومتر، ۵۳</li>
+<li>۵ کیلومتر، ۶۹</li>
+<li>۶ کیلومتر، ۸۰</li>
+<li>۸ کیلومتر، ۹۲</li>
+<li>۱۰ کیلومتر، ۱۱۱</li>
+</ul>
+
+<p>سفر هفتم ۷ کیلومتر است. پیش از خواندن ادامه، کرایه‌اش را حدس بزنید. این عددها را خودم ساخته‌ام و گرد کرده‌ام تا حسابشان با کاغذ راحت باشد؛ کرایه‌ی واقعی شهر شما فرق دارد.</p>
+
+<h2>کرایه با دو عدد حساب می‌شود</h2>
+
+<p>فرض کنید کرایه فقط به مسافت بستگی دارد. آن وقت دو عدد کافی است: کرایه‌ی پایه، که با سوار شدن می‌پردازید، و نرخ هر کیلومتر. کرایه‌ی هر سفر می‌شود کرایه‌ی پایه به‌اضافه‌ی نرخ ضرب در مسافت. به چنین فرمولی مدل <span lang="en">(model)</span> می‌گویند و به عددهای قابل تنظیمش پارامتر <span lang="en">(parameter)</span>.</p>
+
+<h2>یادگیری یعنی پیدا کردن پارامترها از روی مثال‌ها</h2>
+
+<p>کسی کرایه‌ی پایه و نرخ این تاکسی را به شما نگفته است. فقط شش مثال دارید که جوابشان معلوم است. در یادگیری ماشین <span lang="en">(machine learning)</span>، پارامترها طوری انتخاب می‌شوند که خروجی فرمول تا جای ممکن به همین جواب‌ها نزدیک شود. به این کار آموزش <span lang="en">(training)</span> می‌گویند.</p>
+
+<p>یک حدس را امتحان کنید: کرایه‌ی پایه ۲۰ و نرخ ۱۰. این فرمول برای سفر ۱۰ کیلومتری ۱۲۰ می‌دهد که ۹ هزار تومان از کرایه‌ی واقعی بیشتر است؛ برای سفر ۲ کیلومتری هم ۷ هزار تومان کم می‌آورد. حالا کرایه‌ی پایه ۳۰ و نرخ ۸ را امتحان کنید. این بار خطای هیچ سفری از ۲ هزار تومان بیشتر نیست. کرایه‌ی سفر هفتم هم می‌شود ۳۰ به‌اضافه‌ی ۸ ضرب در ۷، یعنی ۸۶.</p>
+
+<p>کامپیوتر همین امتحان کردن را حساب‌شده انجام می‌دهد. خطای هر سفر را به توان دو می‌رساند، همه را جمع می‌کند و پارامترهایی را پیدا می‌کند که این جمع را به کمترین مقدار برسانند. برای این شش سفر، این جمع با حدس اول ۲۰۴ است و با ۳۰ و ۸ فقط ۱۲. هیچ جفت عدد دیگری جمع کمتری نمی‌دهد.</p>
+
+<section class="lab" id="play" data-lab="fit" aria-labelledby="play-title">
+<h2 id="play-title">دو عدد را خودتان تنظیم کنید</h2>
+<p>کرایه‌ی پایه و نرخ هر کیلومتر را جابه‌جا کنید. خط‌چین هر سفر خطای آن سفر است و نقطه‌ی توپر، کرایه‌ای که این دو عدد برای سفر هفتم پیش‌بینی می‌کنند. سعی کنید جمع مربع خطاها را به کمترین مقدار برسانید.</p>
+<div class="sliders">
+<div class="slider"><label for="fit-base">کرایه‌ی پایه</label><input id="fit-base" type="range" min="0" max="60" step="1" value="20" dir="ltr" data-base><output for="fit-base" data-base-out>۲۰</output></div>
+<div class="slider"><label for="fit-rate">نرخ هر کیلومتر</label><input id="fit-rate" type="range" min="0" max="16" step="0.5" value="10" dir="ltr" data-rate><output for="fit-rate" data-rate-out>۱۰</output></div>
+</div>
+<div class="plot" data-plot></div>
+<div class="readout" data-readout aria-live="polite"></div>
+<div class="actions">
+<button type="button" class="btn" data-best>بهترین خط را نشانم بده</button>
+<button type="button" class="btn" data-reset>برگشت به حدس اول</button>
+</div>
+<noscript><p class="note">این بخش با جاوااسکریپت کار می‌کند که در مرورگر شما خاموش است. شش سفر و بهترین دو عدد در <a href="data.json">فایل داده‌های درس</a> هم هست.</p></noscript>
+</section>
+
+<p>در سفرهای واقعی، حتی بهترین پارامترها هم همه‌ی کرایه‌ها را دقیق درنمی‌آورند، چون کرایه به چیزهایی مثل ترافیک هم بستگی دارد که این فرمول نمی‌بیند. کرایه‌ی واقعی هیچ شهری را نسنجیده‌ام.</p>
+
+<h2>جی‌پی‌تی ۳ همین کار را با ۱۷۵ میلیارد پارامتر می‌کند</h2>
+
+<p>مدل‌های زبانی هم فرمول‌اند، فقط خیلی بزرگ‌تر. در درس اول دیدید که مدل به هر توکن ممکن برای ادامه‌ی متن یک احتمال می‌دهد. این احتمال‌ها از یک فرمول درمی‌آیند. پارامترهای آن فرمول در آموزش طوری تنظیم شده‌اند که توکن بعدیِ متن‌های واقعی احتمال بالایی بگیرد.</p>
+
+<p>اوپن‌ای‌آی، شرکت سازنده‌ی چت‌جی‌پی‌تی، سال ۲۰۲۰ در مقاله‌ای تعداد پارامترهای جی‌پی‌تی ۳ را ۱۷۵ میلیارد اعلام کرد. همان مقاله می‌گوید این مدل با ۳۰۰ میلیارد توکن متن آموزش دید. تاکسی این درس دو پارامتر داشت و شش مثال. ایده یکی است و اندازه خیلی فرق دارد.</p>
+
+<p>برای مدل‌هایی که امروز پشت چت‌جی‌پی‌تی کار می‌کنند، این عدد اعلام نشده است. اوپن‌ای‌آی در گزارش جی‌پی‌تی ۴ نوشت که اندازه‌ی مدل را نمی‌گوید.</p>
+
+<h2>چت‌بات هنگام گفت‌وگو با شما یاد نمی‌گیرد</h2>
+
+<p>خیلی‌ها فکر می‌کنند چت‌بات از هر گفت‌وگو چیز تازه‌ای یاد می‌گیرد. ولی پارامترها در آموزش تنظیم می‌شوند و بعد ثابت می‌مانند. وقتی کرایه‌ی سفر هفتم را با ۳۰ و ۸ حساب کردید، این دو عدد عوض نشدند. مدل هم وقتی جوابتان را می‌دهد، فقط پارامترهایش را به کار می‌برد. آنچه در یک گفت‌وگو یادش می‌ماند، متنی است که در پنجره‌ی زمینه‌اش جا شده، همان که در درس قبل آمد.</p>
+
+<p>اگر شرکتی گفت‌وگوها را برای آموزش نسخه‌ی بعدی به کار ببرد، آن آموزش جداگانه‌ای است که بعداً انجام می‌شود و مدل تازه‌ای می‌سازد.</p>
+
+<h2>ده دقیقه با قلم و کاغذ</h2>
+
+<p>روی کاغذ شطرنجی دو محور بکشید: مسافت به کیلومتر در پایین و کرایه در کنار. شش سفر بالا را نقطه بگذارید، یا اگر کرایه‌ی چند سفر خودتان یادتان هست، همان‌ها را. خط‌کش را طوری بگذارید که از میان نقطه‌ها بگذرد و خط را بکشید. جایی که خط محور کرایه را قطع می‌کند، کرایه‌ی پایه است و اینکه خط با هر کیلومتر چقدر بالا می‌رود، نرخ. با این دو عدد کرایه‌ی سفر هفتم را پیش‌بینی کنید.</p>
+
+<p>اگر پایتون <span lang="en">(Python)</span> روی کامپیوترتان هست، این چند خط بدون اینترنت و بدون هیچ کتابخانه‌ای همان خط را پیدا می‌کنند. به این روش کمترین مربعات <span class="nw" lang="en">(least squares)</span> می‌گویند:</p>
+
+<pre dir="ltr" lang="en"><code>km = [2, 3, 5, 6, 8, 10]
+fare = [47, 53, 69, 80, 92, 111]
+n = len(km)
+mk, mf = sum(km) / n, sum(fare) / n
+rate = sum((k - mk) * (f - mf) for k, f in zip(km, fare)) / sum((k - mk) ** 2 for k in km)
+base = mf - rate * mk
+print(round(base, 2), round(rate, 2))
+print(round(base + rate * 7, 2))</code></pre>
+
+<p>برنامه اول ۳۰ و ۸ را چاپ می‌کند و بعد ۸۶. این برنامه فقط مسافت را می‌بیند، نه ترافیک را.</p>
+
+<h2>واژه‌نامه‌ی این درس</h2>
+
+<ul class="glossary">
+<li><b>مدل <span lang="en">(model)</span>:</b> فرمولی که از ورودی خروجی می‌سازد، مثل فرمولی که از مسافت کرایه را حساب می‌کند.</li>
+<li><b>پارامتر <span lang="en">(parameter)</span>:</b> عددی در مدل که در آموزش تنظیم می‌شود، مثل کرایه‌ی پایه و نرخ هر کیلومتر.</li>
+<li><b>آموزش <span lang="en">(training)</span>:</b> پیدا کردن پارامترهایی که خروجی مدل را به جواب مثال‌های معلوم نزدیک می‌کنند.</li>
+</ul>
+
+<p>«یادگیری آخر هفته» خواهر فارسی خبرنامه‌ی انگلیسی‌ام <a href="https://www.linkedin.com/newsletters/weekend-learning-7044258763238731776/" lang="en">Weekend Learning</a> است که درباره‌ی ارزیابی مدل‌هاست و در هفته‌هایی می‌آید که این یکی نمی‌آید.</p>
+
+<p class="next"><b>درس بعد:</b> از هر هزار صفحه‌ای که کامن‌کرال <span lang="en">(Common Crawl)</span> در یکی از جمع‌آوری‌های اخیرش برداشته، حدود ۷ صفحه فارسی است. کامن‌کرال بزرگ‌ترین مجموعه‌ی عمومی صفحه‌های وب است و بیشترِ متن آموزشی جی‌پی‌تی ۳ هم از آن آمده بود. درس بعد درباره‌ی این است که این کمبود با فارسی نوشتن مدل‌ها چه می‌کند.</p>
+
+<h2 id="run">این درس را اجرا کنید و با خود ببرید</h2>
+
+<p>دفترچه‌ی ژوپیتر <span class="nw" lang="en">(Jupyter notebook)</span> این درس جز خود پایتون <span lang="en">(Python)</span> به چیز دیگری نیاز ندارد و بدون اینترنت اجرا می‌شود: خطای هر حدس را حساب می‌کند، دو عدد را یک بار با امتحان کردن و یک بار با کمترین مربعات پیدا می‌کند و کرایه‌ی سفر هفتم را پیش‌بینی می‌کند. <a href="03-parameters.ipynb" download>فایل دفترچه</a> را دانلود کنید یا آن را <a href="https://github.com/mohammadi-hadi/weekend-learning-fa/blob/main/03-parameters/03-parameters.ipynb">در گیت‌هاب ببینید</a>.</p>
+
+<p id="take">کل درس، با همین صفحه و ابزارها و داده‌هایش، در یک فایل زیپ هم هست. <a href="03-parameters-offline.zip" download>فایل زیپ درس</a> <span data-zip-size="03-parameters">(حدود ۷۰ کیلوبایت)</span> را دانلود و از حالت فشرده خارج کنید، بعد فایل <span lang="en">index.html</span> را در مرورگر باز کنید.</p>
+
+<p>درس‌های تازه هر دو هفته یک بار، جمعه‌ها، در <a href="https://www.linkedin.com/newsletters/7508807306889863168/">خبرنامه‌ی یادگیری آخر هفته در لینکدین</a> می‌آیند.</p>
+
+</main>
+
+<footer class="site-foot">
+<div class="col">
+<p><a href="../index.html">همه‌ی درس‌های یادگیری آخر هفته</a></p>
+<p>هادی محمدی</p>
+</div>
+</footer>
+
+<script type="application/json" id="lesson-data">{"lesson":"03-parameters","invented":true,"about":"Six invented taxi trips, rounded so they can be worked on paper: distance in kilometres, fare in thousand toman. The best line is the least-squares fit; a real fare also depends on time and traffic.","units":{"km":"kilometres","fare":"thousand toman"},"trips":[{"km":2,"fare":47},{"km":3,"fare":53},{"km":5,"fare":69},{"km":6,"fare":80},{"km":8,"fare":92},{"km":10,"fare":111}],"fit":{"base":30.0,"rate":8.0,"sum_squared_error":12.0},"guess":{"base":20,"rate":10,"sum_squared_error":204},"seventh_km":7}</script>
+<script src="../assets/fares.js"></script>
+</body>
+</html>
