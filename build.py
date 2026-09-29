@@ -171,6 +171,27 @@ def tokens_data(src: dict) -> dict:
     }
 
 
+def fares_data(src: dict) -> dict:
+    if not src.get("invented"):
+        raise SystemExit("003-fares.json must mark its trips as invented")
+    return {
+        "lesson": "03-parameters",
+        "invented": True,
+        "about": (
+            "Six invented taxi trips, rounded so they can be worked on paper: "
+            "distance in kilometres, fare in thousand toman. The best line is "
+            "the least-squares fit; a real fare also depends on time and "
+            "traffic."),
+        "units": src["units"],
+        "trips": src["trips"],
+        "fit": {"base": src["fit"]["base"], "rate": src["fit"]["rate"],
+                "sum_squared_error": src["fit"]["sum_squared_error"]},
+        "guess": {"base": src["guess"]["base"], "rate": src["guess"]["rate"],
+                  "sum_squared_error": src["guess"]["sum_squared_error"]},
+        "seventh_km": src["seventh_km"],
+    }
+
+
 @dataclass
 class Lesson:
     slug: str
@@ -196,6 +217,8 @@ LESSONS = [
            "data/001-proverbs.json", next_word_data),
     Lesson("02-tokens", "issues/002-tokens.html",
            "data/002-tokens.json", tokens_data),
+    Lesson("03-parameters", "issues/003-taxi-fare.html",
+           "data/003-fares.json", fares_data),
 ]
 
 

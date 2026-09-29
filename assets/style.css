@@ -310,3 +310,22 @@ textarea.field:focus,
 .tok.sp { border-inline-start: 3px solid var(--accent); }
 .tok.half { border-style: dashed; color: var(--muted); font-size: 0.85rem; }
 .count { margin: 0.2em 0; }
+
+/* Lesson 03: fitting the taxi fare */
+.sliders { display: grid; gap: 10px; margin: 0.6em 0 0.2em; }
+.slider { display: grid; grid-template-columns: 9.5em minmax(0, 1fr) 3em; align-items: center; gap: 10px; }
+.slider label { font-weight: 500; }
+.slider input[type="range"] { width: 100%; accent-color: var(--accent); }
+.slider output { font-weight: 700; text-align: center; }
+.plot { margin: 14px 0 6px; }
+.plot svg { display: block; width: 100%; height: auto; max-width: 480px; direction: ltr; }
+.plot text { font-size: 15px; fill: var(--muted); font-family: var(--font); }
+.plot .grid { stroke: var(--track); }
+.plot .line { stroke: var(--accent); stroke-width: 3; }
+.plot .res { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 3; }
+.plot .pt { fill: var(--surface); stroke: var(--accent); stroke-width: 3; }
+.plot .seventh { fill: var(--accent); }
+.readout p { margin: 0.3em 0; }
+.lab .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+pre { direction: ltr; text-align: left; overflow-x: auto; margin: 0.8em 0 1.2em; padding: 12px 14px; background: var(--tint); border: 1px solid var(--rule); border-radius: 4px; }
+code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85rem; line-height: 1.7; }
