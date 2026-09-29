@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تکه‌هایی به اسم توکن | یادگیری آخر هفته</title>
+<meta name="description" content="مدل متن را تکه‌تکه می‌خواند و توکن‌سازهایی که احتمالاً از روی متن‌های عمدتاً انگلیسی ساخته شده‌اند، فارسی را به تکه‌های بیشتری می‌شکنند.">
+<meta name="author" content="هادی محمدی">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="یادگیری آخر هفته">
+<meta property="og:title" content="تکه‌هایی به اسم توکن">
+<meta property="og:description" content="مدل متن را تکه‌تکه می‌خواند و توکن‌سازهایی که احتمالاً از روی متن‌های عمدتاً انگلیسی ساخته شده‌اند، فارسی را به تکه‌های بیشتری می‌شکنند.">
+<meta property="og:image" content="https://mohammadi.cv/weekend-learning-fa/assets/logo.png">
+<link rel="icon" type="image/png" href="../assets/icon-96.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-head col">
+<a class="brand" href="../index.html"><img src="../assets/icon-96.png" alt="" width="32" height="32"><span>یادگیری آخر هفته</span></a>
+</header>
+
+<main class="col">
+
+<p class="kicker">درس ۲</p>
+<h1>تکه‌هایی به اسم توکن</h1>
+<p class="standfirst">مدل «برفش» را سه تکه نوشت؛ همین تکه‌ها فارسی را برای مدل‌ها گران‌تر از انگلیسی می‌کنند.</p>
+
+<nav aria-label="چهار شکل این درس">
+<ul class="ways">
+<li><a href="#read">بخوانید</a></li>
+<li><a href="#play">بازی کنید</a></li>
+<li><a href="#run">اجرا کنید</a></li>
+<li><a href="#take">با خود ببرید</a></li>
+</ul>
+</nav>
+
+<!-- The text from here to the glossary is newsletter issue 2, word for word.
+     build.py reports any block of the issue that is missing from this page.
+     These blocks differ on purpose:
+     - «در شماره‌ی قبل» reads «در درس قبل», and «مدل کوچک شماره‌ی قبل» reads
+       «مدل کوچک درس قبل»;
+     - the glossary heading reads «واژه‌نامه‌ی این درس», not «این شماره»;
+     - the link line drops «این درس صفحه‌ای هم در وب‌سایتم دارد», since this
+       is that page;
+     - the five-second task asks for LinkedIn comments, so it is left out;
+     - the teaser reads «درس بعد:» and drops the issue's date. -->
+
+<p id="read">در درس قبل، مدل کوچکی که روی لپ‌تاپم دارم «برفش» را یک‌جا ننوشت. اول «بر» را نوشت، بعد «ف» و بعد «ش». مدل در هر قدم یک تکه می‌نویسد و این تکه همیشه یک کلمه‌ی کامل نیست.</p>
+
+<h2>مدل متن را تکه‌تکه می‌خواند و می‌نویسد</h2>
+
+<p>به این تکه‌ها توکن <span lang="en">(token)</span> می‌گویند. متن پیش از رسیدن به مدل، به توکن‌ها شکسته می‌شود. این شکستن کار برنامه‌ی جداگانه‌ای است که اینجا به آن توکن‌ساز <span lang="en">(tokenizer)</span> می‌گوییم؛ در نوشته‌های دیگر اسم «توکنایزر» را هم می‌بینید.</p>
+
+<p>توکن‌ساز فهرست ثابتی از تکه‌ها دارد که از روی حجم عظیمی از متن ساخته شده. کلمه‌ای که در آن متن‌ها زیاد تکرار شده، یک تکه‌ی کامل است و کلمه‌ی کم‌کاربرد از تکه‌های کوچک‌تر سر هم می‌شود. احتمالاً بخش بزرگی از آن متن‌ها انگلیسی بوده، پس کلمه‌های فارسی بیشتر از انگلیسی تکه‌تکه می‌شوند. هر دو توکن‌ساز چت‌جی‌پی‌تی هم «برفش» را به‌تنهایی سه تکه می‌کنند: «بر» و «ف» و «ش».</p>
+
+<h2>طول متن، سرعت و قیمت به تعداد توکن‌ها بستگی دارد</h2>
+
+<p>تعداد توکن‌ها سه چیز را تعیین می‌کند. مدل هر بار فقط تعداد محدودی توکن را می‌بیند که به آن پنجره‌ی زمینه <span lang="en">(context window)</span> می‌گویند؛ متن پرتوکن‌تر زودتر آن را پر می‌کند. مدل در هر قدم یک توکن می‌نویسد، پس جواب پرتوکن‌تر دیرتر تمام می‌شود. سرویس‌هایی هم که استفاده از مدل را می‌فروشند قیمت را بر حسب توکن حساب می‌کنند.</p>
+
+<h2>همان جمله به فارسی توکن‌های بیشتری می‌خواهد</h2>
+
+<p>سال ۲۰۲۳ چند پژوهشگر دانشگاه آکسفورد توکن‌های حدود دو هزار جمله‌ی انگلیسی و ترجمه‌ی فارسی همان جمله‌ها را با توکن‌ساز آن روزهای چت‌جی‌پی‌تی شمردند. متن فارسی در مجموع ۳٫۲۸ برابر انگلیسی توکن شد. این شمارش را خودم تکرار کردم و عدد تا آخرین توکن همان درآمد.</p>
+
+<p>توکن‌ساز جدیدتری که مدل‌های بعدی چت‌جی‌پی‌تی (مثل <span lang="en">gpt-4o</span> و <span lang="en">gpt-5</span>) به کار می‌برند، برای همان جمله‌ها در مجموع حدود ۱٫۵ برابر انگلیسی توکن می‌سازد. فاصله هنوز هست، ولی خیلی کمتر شده.</p>
+
+<p>یکی از همین جمله‌ها از یک راهنمای سفر آمده است: «فارسی دستور زبانی نسبتاً آسان و عمدتاً منظم دارد.» اصل انگلیسی‌اش <span lang="en">(Persian has a relatively easy and mostly regular grammar)</span> با هر دو توکن‌ساز ۱۱ توکن است. نسخه‌ی فارسی با توکن‌ساز قدیمی ۳۸ توکن شد و بعضی تکه‌هایش حتی یک حرف کامل نبودند: «ز» در «زبانی» دو نیم شد. توکن‌ساز جدید همین جمله را ۱۶ تکه می‌کند:</p>
+
+<p>«فار» «سی» «دستور» «ز» «بانی» «نسبت» «اً» «آسان» «و» «عمد» «ت» «اً» «من» «ظم» «دارد» و نقطه‌ی آخر.</p>
+
+<section class="lab" id="play" data-lab="tokens" aria-labelledby="play-title">
+<h2 id="play-title">تکه‌ها را خودتان ببینید</h2>
+<p>یک متن و یک توکن‌ساز انتخاب کنید تا ببینید متن به چه تکه‌هایی شکسته می‌شود و چند توکن است. تکه‌ای که نوار رنگی کنارش دارد با فاصله شروع می‌شود، یعنی اول یک کلمه‌ی تازه است.</p>
+<p class="note">این تکه‌ها را یک بار، بدون اینترنت، با کتابخانه‌ی توکن‌سازهای چت‌جی‌پی‌تی حساب کرده‌ام و اینجا فقط نشانشان می‌دهم؛ خود توکن‌ساز همراه صفحه نیست تا صفحه با اینترنت کند هم زود باز شود.</p>
+<p class="lab-label">متن</p>
+<ul class="picker" data-texts></ul>
+<p class="lab-label">توکن‌ساز</p>
+<ul class="picker" data-tokenizers></ul>
+<div class="result" data-pieces aria-live="polite"></div>
+<noscript><p class="note">این بخش با جاوااسکریپت کار می‌کند که در مرورگر شما خاموش است. همین تکه‌ها در <a href="data.json">فایل داده‌های درس</a> هم هست.</p></noscript>
+</section>
+
+<section class="lab" data-lab="ratios" aria-labelledby="ratio-title">
+<h2 id="ratio-title">در کل دو هزار جمله</h2>
+<p>برای هر توکن انگلیسی، چند توکن فارسی لازم شد. هر دو زبان همان جمله‌ها را دارند.</p>
+<div data-ratios></div>
+</section>
+
+<p>این عددها فقط به توکن‌سازهای چت‌جی‌پی‌تی مربوط است. توکن‌های مدل کوچک درس قبل را نشمرده‌ام و توکن‌ساز بیشتر شرکت‌های دیگر را هم نسنجیده‌ام.</p>
+
+<h2>تکه‌تکه شدن فارسی به فهرست توکن‌ساز برمی‌گردد</h2>
+
+<p>خیلی‌ها فکر می‌کنند فارسی برای هوش مصنوعی زبان سختی است و تکه‌های زیاد هم از همین سختی می‌آید. ولی جمله‌ی راهنمای سفر بی‌آنکه یک حرفش عوض شود، از ۳۸ تکه به ۱۶ تکه رسید. فقط توکن‌ساز عوض شده بود: فهرست جدید حدود دو برابر بزرگ‌تر است و تکه‌های فارسی بلندتری دارد. تعداد تکه‌ها نشانه‌ی سختی زبان نیست.</p>
+
+<h2>ده دقیقه با قلم و کاغذ</h2>
+
+<p>یک جمله‌ی کوتاه فارسی و ترجمه‌ی انگلیسی‌اش را روی کاغذ بنویسید. بعد خودتان را جای توکن‌ساز بگذارید: کلمه‌های رایج را یک تکه نگه دارید و کلمه‌های کم‌کاربرد را به تکه‌هایی بشکنید که زیاد دیده‌اید، مثل «می» یا «ها». تکه‌های هر جمله را بشمارید، تعداد فارسی را بر تعداد انگلیسی تقسیم کنید و عددتان را کنار ۳٫۲۸ و ۱٫۵ بگذارید.</p>
+
+<p>اگر کنجکاوید چرا «ز» دو نیم شد، دلیلش این است که توکن‌ساز با بایت <span lang="en">(byte)</span> کار می‌کند. در یوتی‌اف ۸ <span lang="en">(UTF-8)</span>، رایج‌ترین روش ذخیره‌ی متن، هر حرف انگلیسی یک بایت است و هر حرف فارسی دو بایت؛ یک تکه می‌تواند فقط یکی از این دو بایت باشد. جمله‌ی فارسی راهنمای سفر از اصلش کوتاه‌تر است، ولی ۸۹ بایت دارد و انگلیسی ۵۷ بایت.</p>
+
+<h2>واژه‌نامه‌ی این درس</h2>
+
+<ul class="glossary">
+<li><b>توکن <span lang="en">(token)</span>:</b> تکه‌ای از متن که مدل می‌خواند و می‌نویسد، گاهی یک کلمه و گاهی بخشی از آن، مثل «بر» در «برفش».</li>
+<li><b>توکن‌ساز <span lang="en">(tokenizer)</span>:</b> برنامه‌ای که متن را با فهرست ثابتی از تکه‌ها به توکن می‌شکند.</li>
+<li><b>پنجره‌ی زمینه <span lang="en">(context window)</span>:</b> حداکثر تعداد توکنی که مدل یک‌جا می‌بیند.</li>
+</ul>
+
+<p>«یادگیری آخر هفته» خواهر فارسی خبرنامه‌ی انگلیسی‌ام <a href="https://www.linkedin.com/newsletters/weekend-learning-7044258763238731776/" lang="en">Weekend Learning</a> است که درباره‌ی ارزیابی مدل‌هاست و در هفته‌هایی می‌آید که این یکی نمی‌آید.</p>
+
+<p class="next"><b>درس بعد:</b> یادگیری ماشین یعنی تنظیم چند عدد، مثل کرایه‌ی پایه‌ی تاکسی و نرخ هر کیلومتر که از روی سفرهای قبلی پیدا می‌شوند. به این عددها پارامتر می‌گویند؛ مدل‌های زبانی هم از همین عددها ساخته شده‌اند، فقط تعدادشان خیلی بیشتر است.</p>
+
+<h2 id="run">این درس را اجرا کنید و با خود ببرید</h2>
+
+<p>دفترچه‌ی ژوپیتر <span class="nw" lang="en">(Jupyter notebook)</span> این درس جز خود پایتون <span lang="en">(Python)</span> به چیز دیگری نیاز ندارد و بدون اینترنت اجرا می‌شود: بایت‌ها و حرف‌های هر دو جمله را می‌شمارد و تکه‌های هر توکن‌ساز را از داده‌های درس نشان می‌دهد. <a href="02-tokens.ipynb" download>فایل دفترچه</a> را دانلود کنید یا آن را <a href="https://github.com/mohammadi-hadi/weekend-learning-fa/blob/main/02-tokens/02-tokens.ipynb">در گیت‌هاب ببینید</a>.</p>
+
+<p id="take">کل درس، با همین صفحه و ابزارها و داده‌هایش، در یک فایل زیپ هم هست. <a href="02-tokens-offline.zip" download>فایل زیپ درس</a> <span data-zip-size="02-tokens">(حدود ۷۱ کیلوبایت)</span> را دانلود و از حالت فشرده خارج کنید، بعد فایل <span lang="en">index.html</span> را در مرورگر باز کنید.</p>
+
+<p>درس‌های تازه هر دو هفته یک بار، جمعه‌ها، در <a href="https://www.linkedin.com/newsletters/7508807306889863168/">خبرنامه‌ی یادگیری آخر هفته در لینکدین</a> می‌آیند.</p>
+
+</main>
+
+<footer class="site-foot">
+<div class="col">
+<p><a href="../index.html">همه‌ی درس‌های یادگیری آخر هفته</a></p>
+<p>هادی محمدی</p>
+</div>
+</footer>
+
+<script type="application/json" id="lesson-data">{"lesson":"02-tokens","tokenizers":[{"id":"cl100k_base","label":"توکن‌ساز قدیمی چت‌جی‌پی‌تی"},{"id":"o200k_base","label":"توکن‌ساز جدید چت‌جی‌پی‌تی"}],"about":"Pieces are what each tokenizer produces for the text, taken from tiktoken. A piece that starts with a space begins a new word. A piece shown as <0xD8> is one byte, half of a Persian letter. The corpus ratio is Persian tokens over English tokens for the same 2009 FLORES-200 sentences, each language joined and encoded once.","example_source":"FLORES-200 devtest line 978","chars":{"en":57,"fa":49},"utf8_bytes":{"en":57,"fa":89},"corpus_sentences":2009,"corpus":{"cl100k_base":{"en_tokens":52835,"fa_tokens":173333,"ratio":3.2806},"o200k_base":{"en_tokens":52279,"fa_tokens":79614,"ratio":1.5229}},"texts":[{"id":"fa-sentence","label":"جمله‌ی فارسی","lang":"fa","text":"فارسی دستور زبانی نسبتاً آسان و عمدتاً منظم دارد.","by":{"cl100k_base":["ف","ار","س","ی"," د","ست","ور"," <0xD8>","<0xB2>","ب","ان","ی"," ن","س","ب","ت","ا","<0xD9>","<0x8B>"," <0xD8>","<0xA2>","س","ان"," و"," ع","م","د","ت","ا","<0xD9>","<0x8B>"," من","ظ","م"," د","ار","د","."],"o200k_base":["فار","سی"," دستور"," ز","بانی"," نسبت","اً"," آسان"," و"," عمد","ت","اً"," من","ظم"," دارد","."]}},{"id":"en-sentence","label":"همان جمله به انگلیسی","lang":"en","text":"Persian has a relatively easy and mostly regular grammar.","by":{"cl100k_base":["Pers","ian"," has"," a"," relatively"," easy"," and"," mostly"," regular"," grammar","."],"o200k_base":["Pers","ian"," has"," a"," relatively"," easy"," and"," mostly"," regular"," grammar","."]}},{"id":"word-2","label":"برفش","lang":"fa","text":"برفش","by":{"cl100k_base":["بر","ف","ش"],"o200k_base":["بر","ف","ش"]}},{"id":"word-3","label":"هر که بامش بیش، برفش بیشتر","lang":"fa","text":"هر که بامش بیش، برفش بیشتر","by":{"cl100k_base":["ه","ر"," ک","ه"," ب","ام","ش"," ب","ی","ش","،"," ب","ر","ف","ش"," ب","ی","ش","ت","ر"],"o200k_base":["هر"," که"," ب","ام","ش"," بیش","،"," بر","ف","ش"," بیشتر"]}}]}</script>
+<script src="../assets/tokens.js"></script>
+</body>
+</html>

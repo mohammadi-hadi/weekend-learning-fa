@@ -1,0 +1,199 @@
+{
+ "lesson": "02-tokens",
+ "tokenizers": [
+  {
+   "id": "cl100k_base",
+   "label": "توکن‌ساز قدیمی چت‌جی‌پی‌تی"
+  },
+  {
+   "id": "o200k_base",
+   "label": "توکن‌ساز جدید چت‌جی‌پی‌تی"
+  }
+ ],
+ "about": "Pieces are what each tokenizer produces for the text, taken from tiktoken. A piece that starts with a space begins a new word. A piece shown as <0xD8> is one byte, half of a Persian letter. The corpus ratio is Persian tokens over English tokens for the same 2009 FLORES-200 sentences, each language joined and encoded once.",
+ "example_source": "FLORES-200 devtest line 978",
+ "chars": {
+  "en": 57,
+  "fa": 49
+ },
+ "utf8_bytes": {
+  "en": 57,
+  "fa": 89
+ },
+ "corpus_sentences": 2009,
+ "corpus": {
+  "cl100k_base": {
+   "en_tokens": 52835,
+   "fa_tokens": 173333,
+   "ratio": 3.2806
+  },
+  "o200k_base": {
+   "en_tokens": 52279,
+   "fa_tokens": 79614,
+   "ratio": 1.5229
+  }
+ },
+ "texts": [
+  {
+   "id": "fa-sentence",
+   "label": "جمله‌ی فارسی",
+   "lang": "fa",
+   "text": "فارسی دستور زبانی نسبتاً آسان و عمدتاً منظم دارد.",
+   "by": {
+    "cl100k_base": [
+     "ف",
+     "ار",
+     "س",
+     "ی",
+     " د",
+     "ست",
+     "ور",
+     " <0xD8>",
+     "<0xB2>",
+     "ب",
+     "ان",
+     "ی",
+     " ن",
+     "س",
+     "ب",
+     "ت",
+     "ا",
+     "<0xD9>",
+     "<0x8B>",
+     " <0xD8>",
+     "<0xA2>",
+     "س",
+     "ان",
+     " و",
+     " ع",
+     "م",
+     "د",
+     "ت",
+     "ا",
+     "<0xD9>",
+     "<0x8B>",
+     " من",
+     "ظ",
+     "م",
+     " د",
+     "ار",
+     "د",
+     "."
+    ],
+    "o200k_base": [
+     "فار",
+     "سی",
+     " دستور",
+     " ز",
+     "بانی",
+     " نسبت",
+     "اً",
+     " آسان",
+     " و",
+     " عمد",
+     "ت",
+     "اً",
+     " من",
+     "ظم",
+     " دارد",
+     "."
+    ]
+   }
+  },
+  {
+   "id": "en-sentence",
+   "label": "همان جمله به انگلیسی",
+   "lang": "en",
+   "text": "Persian has a relatively easy and mostly regular grammar.",
+   "by": {
+    "cl100k_base": [
+     "Pers",
+     "ian",
+     " has",
+     " a",
+     " relatively",
+     " easy",
+     " and",
+     " mostly",
+     " regular",
+     " grammar",
+     "."
+    ],
+    "o200k_base": [
+     "Pers",
+     "ian",
+     " has",
+     " a",
+     " relatively",
+     " easy",
+     " and",
+     " mostly",
+     " regular",
+     " grammar",
+     "."
+    ]
+   }
+  },
+  {
+   "id": "word-2",
+   "label": "برفش",
+   "lang": "fa",
+   "text": "برفش",
+   "by": {
+    "cl100k_base": [
+     "بر",
+     "ف",
+     "ش"
+    ],
+    "o200k_base": [
+     "بر",
+     "ف",
+     "ش"
+    ]
+   }
+  },
+  {
+   "id": "word-3",
+   "label": "هر که بامش بیش، برفش بیشتر",
+   "lang": "fa",
+   "text": "هر که بامش بیش، برفش بیشتر",
+   "by": {
+    "cl100k_base": [
+     "ه",
+     "ر",
+     " ک",
+     "ه",
+     " ب",
+     "ام",
+     "ش",
+     " ب",
+     "ی",
+     "ش",
+     "،",
+     " ب",
+     "ر",
+     "ف",
+     "ش",
+     " ب",
+     "ی",
+     "ش",
+     "ت",
+     "ر"
+    ],
+    "o200k_base": [
+     "هر",
+     " که",
+     " ب",
+     "ام",
+     "ش",
+     " بیش",
+     "،",
+     " بر",
+     "ف",
+     "ش",
+     " بیشتر"
+    ]
+   }
+  }
+ ]
+}
