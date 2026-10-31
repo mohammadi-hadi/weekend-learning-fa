@@ -15,6 +15,7 @@
 
   var FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
   var SVG = "http://www.w3.org/2000/svg";
+  var clipCount = 0;
 
   function faNum(value) {
     return String(value)
@@ -55,7 +56,7 @@
     var W = 400, H = 280, L = 44, B = 36, T = 12, R = 12;
     var xmax = 11, ymax = 130;
     function sx(km) { return L + km / xmax * (W - L - R); }
-    function sy(f) { return H - B - Math.max(0, Math.min(ymax, f)) / ymax * (H - B - T); }
+    function sy(f) { return H - B - f / ymax * (H - B - T); }
 
     var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
                              "aria-label": "شش سفر و خطی که دو عدد انتخابی شما می‌کشد" });
@@ -70,15 +71,26 @@
       t.textContent = faNum(km);
       svg.appendChild(t);
     });
+    // The line, the errors and the seventh trip can run past the top of the
+    // plot (base 60, rate 16 reaches 236). Clip them there instead of
+    // flattening them, so the drawn slope always matches the two numbers.
+    var clipId = "fit-clip-" + (++clipCount);
+    var clip = svgEl("clipPath", { id: clipId });
+    clip.appendChild(svgEl("rect", { x: L - 7, y: T - 7, width: W - L - R + 14, height: H - B - T + 14 }));
+    var defs = svgEl("defs", {});
+    defs.appendChild(clip);
+    svg.appendChild(defs);
+    var moving = svgEl("g", { "clip-path": "url(#" + clipId + ")" });
+    svg.appendChild(moving);
     var residuals = trips.map(function () {
       var r = svgEl("line", { "class": "res" });
-      svg.appendChild(r);
+      moving.appendChild(r);
       return r;
     });
     var line = svgEl("line", { "class": "line" });
-    svg.appendChild(line);
+    moving.appendChild(line);
     var guess7 = svgEl("circle", { r: 6, "class": "seventh" });
-    svg.appendChild(guess7);
+    moving.appendChild(guess7);
     trips.forEach(function (tr) {
       svg.appendChild(svgEl("circle", { cx: sx(tr.km), cy: sy(tr.fare), r: 6, "class": "pt" }));
     });
