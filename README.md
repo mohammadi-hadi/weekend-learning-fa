@@ -13,7 +13,7 @@
 هر درس پوشه‌ی خودش را دارد، مثلاً `01-next-word` برای درس اول. این چهار شکل برای همه‌ی درس‌ها یکی است:
 
 - **بخوانید:** صفحه‌ی درس همان متن شماره‌ی خبرنامه را دارد.
-- **بازی کنید:** در همان صفحه ابزار کوچکی هست که با داده‌های واقعی درس کار می‌کند.
+- **بازی کنید:** در همان صفحه ابزار کوچکی هست که با داده‌های همان درس کار می‌کند.
 - **اجرا کنید:** هر درس یک دفترچه‌ی ژوپیتر (Jupyter notebook) دارد که فقط از خود پایتون (Python) استفاده می‌کند و به هیچ بسته‌ی دیگری نیاز ندارد.
 - **با خود ببرید:** فایل زیپ کل پوشه‌ی درس را یک بار بگیرید؛ بعد از آن، صفحه و ابزار و دفترچه بدون اینترنت هم کار می‌کنند.
 
@@ -77,6 +77,6 @@ python3 -c "import glob,json; nb=json.load(open(glob.glob('*.ipynb')[0],encoding
 
 ## In English
 
-This repository is the home of یادگیری آخر هفته, a series of short lessons that explain one machine learning idea at a time to Persian-speaking beginners. Many readers are in Iran on slow and expensive connections, so every lesson works offline once downloaded. Each one has a page to read, a small in-page tool running on the lesson's own measured data, a Jupyter notebook that needs nothing beyond the Python standard library, and a zip of the whole folder. The pages load nothing from other servers; even the Vazirmatn font ships with them.
+This repository is the home of یادگیری آخر هفته, a series of short lessons that explain one machine learning idea at a time to Persian-speaking beginners. Many readers are in Iran on slow and expensive connections, so every lesson works offline once downloaded. Each one has a page to read, a small in-page tool running on the lesson's own data (measured, or invented and labelled as such), a Jupyter notebook that needs nothing beyond the Python standard library, and a zip of the whole folder. The pages load nothing from other servers; even the Vazirmatn font ships with them.
 
 It is the Persian sibling of [Weekend Learning](https://www.linkedin.com/newsletters/weekend-learning-7044258763238731776/), my English newsletter on evaluating language models, and the two come out in alternate weeks. Each lesson starts from an issue of the Persian newsletter on [LinkedIn](https://www.linkedin.com/newsletters/7508807306889863168/). The lessons are online at [mohammadi.cv/weekend-learning-fa](https://mohammadi.cv/weekend-learning-fa/), and the rest of my work is at [mohammadi.cv](https://mohammadi.cv). Code is under the MIT licence, lesson text and figures under CC BY 4.0, and the Vazirmatn font under the SIL Open Font License.
