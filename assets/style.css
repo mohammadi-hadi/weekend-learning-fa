@@ -317,6 +317,10 @@ textarea.field:focus,
 .slider label { font-weight: 500; }
 .slider input[type="range"] { width: 100%; accent-color: var(--accent); }
 .slider output { font-weight: 700; text-align: center; }
+@media (max-width: 420px) {
+  .slider { grid-template-columns: minmax(0, 1fr) 3em; row-gap: 2px; }
+  .slider label { grid-column: 1 / -1; }
+}
 .plot { margin: 14px 0 6px; }
 .plot svg { display: block; width: 100%; height: auto; max-width: 480px; direction: ltr; }
 .plot text { font-size: 15px; fill: var(--muted); font-family: var(--font); }
