@@ -36,6 +36,7 @@ import re
 import sys
 import zipfile
 from dataclasses import dataclass
+from datetime import date, datetime
 from pathlib import Path
 from typing import Callable
 
@@ -192,6 +193,146 @@ def fares_data(src: dict) -> dict:
     }
 
 
+# --------------------------------------------------------------------------
+# Lesson 04: how much of the web is Persian
+# --------------------------------------------------------------------------
+
+# The crawl the lesson leads with. The newsletter's data pins every crawl by
+# its ID, so a newer crawl in Common Crawl's table changes nothing here.
+CC_MAIN = "CC-MAIN-2026-39"
+CC_NEXT = "CC-MAIN-2026-43"
+# What the lesson's prose prints, rounded as it prints it. If the data is
+# ever re-run and one of these comes out different, the build stops, so a
+# person reads the new numbers and fixes the text before it is published.
+PROSE_EXPECTED = {
+    "eng per thousand, September crawl": 419,
+    "nld per thousand, September crawl": 17,
+    "fas per thousand, September crawl": 7,
+    "eng pages per fas page, September crawl": 60,
+    "nld pages per fas page, September crawl": 2.5,
+    "fas per thousand, October crawl": 6,
+    "lowest fas per thousand in 2026": 2,
+    "highest fas per thousand in 2026": 9,
+    "crawls in 2026": 10,
+    "GPT-3 words in English, percent": 93,
+    "GPT-3 Dutch words per Persian word": 40,
+}
+# Names for the languages the notebook lists: every one with more pages than
+# Persian in the September crawl, and two more. Common Crawl gives ISO 639-3
+# codes; the rest of the table keeps its codes.
+LANGUAGE_NAMES = {
+    "eng": "انگلیسی", "rus": "روسی", "deu": "آلمانی", "jpn": "ژاپنی",
+    "spa": "اسپانیایی", "fra": "فرانسوی", "zho": "چینی", "por": "پرتغالی",
+    "ita": "ایتالیایی", "pol": "لهستانی", "nld": "هلندی", "tur": "ترکی استانبولی",
+    "ces": "چکی", "ind": "اندونزیایی", "vie": "ویتنامی", "kor": "کره‌ای",
+    "ukr": "اوکراینی", "swe": "سوئدی", "fas": "فارسی", "ara": "عربی",
+    "hin": "هندی", "<unknown>": "زبان نامشخص",
+}
+JALALI_MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
+                 "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"]
+# 1 Farvardin of the years the crawls fall in, and of the year after. Every
+# crawl of 2026 lies between the first two.
+NOWRUZ = {1404: date(2025, 3, 21), 1405: date(2026, 3, 21), 1406: date(2027, 3, 21)}
+
+
+def jalali(day: date) -> tuple[int, int, int]:
+    """(year, month 1 to 12, day) in the Persian calendar, for 1404 and 1405."""
+    for year in (1404, 1405):
+        if NOWRUZ[year] <= day < NOWRUZ[year + 1]:
+            n = (day - NOWRUZ[year]).days
+            for month, length in enumerate([31] * 6 + [30] * 6, start=1):
+                if n < length:
+                    return year, month, n + 1
+                n -= length
+    raise SystemExit(f"{day} is outside 1404 and 1405; add its Nowruz to NOWRUZ")
+
+
+def crawl_month(start: str, end: str) -> tuple[str, int]:
+    """The Persian month holding the middle of a crawl, which is the month
+    most of its two weeks fall in."""
+    a, b = datetime.fromisoformat(start), datetime.fromisoformat(end)
+    year, month, _ = jalali((a + (b - a) / 2).date())
+    return JALALI_MONTHS[month - 1], year
+
+
+def low_resource_data(src: dict) -> dict:
+    cc = src["commoncrawl"]
+    if cc["main"] != CC_MAIN or CC_NEXT not in cc["quoted"]:
+        raise SystemExit(f"004-low-resource.json no longer leads with {CC_MAIN}")
+    main = cc["quoted"][CC_MAIN]
+    langs = cc["languages_main"]
+    share = {row["lang"]: row["pct"] for row in langs}
+    for code in ("fas", "nld", "eng"):
+        if share[code] != main[code]["pct"]:
+            raise SystemExit(f"{code}: the language table and the quoted crawl disagree")
+    if sum(row["pages"] for row in langs) != main["total_pages"]:
+        raise SystemExit("the language table does not add up to the crawl's pages")
+
+    series = []
+    for row in cc["series_2026"]:
+        month, year = crawl_month(row["from"], row["to"])
+        series.append({"id": row["crawl"], "from": row["from"][:10], "to": row["to"][:10],
+                       "month": month, "year": year, "fas_pct": row["fas_pct"],
+                       "nld_pct": row["nld_pct"], "eng_pct": row["eng_pct"]})
+    if len({(r["month"], r["year"]) for r in series}) != len(series):
+        raise SystemExit("two crawls fall in the same Persian month; label them by date")
+    by_id = {r["id"]: r for r in series}
+    if by_id[CC_MAIN]["fas_pct"] != share["fas"]:
+        raise SystemExit("the 2026 series and the language table disagree on Persian")
+
+    g = src["gpt3"]
+    fas = share["fas"]
+    fas_per_thousand = [r["fas_pct"] * 10 for r in series]
+    got = {
+        "eng per thousand, September crawl": round(share["eng"] * 10),
+        "nld per thousand, September crawl": round(share["nld"] * 10),
+        "fas per thousand, September crawl": round(fas * 10),
+        "eng pages per fas page, September crawl": round(share["eng"] / fas),
+        "nld pages per fas page, September crawl": round(share["nld"] / fas, 1),
+        "fas per thousand, October crawl": round(by_id[CC_NEXT]["fas_pct"] * 10),
+        "lowest fas per thousand in 2026": round(min(fas_per_thousand)),
+        "highest fas per thousand in 2026": round(max(fas_per_thousand)),
+        "crawls in 2026": len(series),
+        "GPT-3 words in English, percent": round(g["en"]["pct"]),
+        "GPT-3 Dutch words per Persian word": round(g["nl"]["words"] / g["fa"]["words"]),
+    }
+    for key, want in PROSE_EXPECTED.items():
+        if got[key] != want:
+            raise SystemExit(f"{key} is now {got[key]}, the lesson prints {want}; read the "
+                             "new numbers, fix the text, then update PROSE_EXPECTED")
+    if g["fa"]["per_10000_words"] >= 1:
+        raise SystemExit("GPT-3 had at least one Persian word in 10,000; the text says less")
+
+    month, year = crawl_month(main["from"], main["to"])
+    fetched = src["fetched"]
+    return {
+        "lesson": "04-low-resource",
+        "about": (
+            "Share of a Common Crawl crawl's HTML pages by primary language, from "
+            "Common Crawl's own table, which detects the language with CLD2, so "
+            "some pages are counted under the wrong language. pct is a percentage "
+            "of the crawl's pages, so pages per thousand is pct times 10. month is "
+            "the Persian calendar month holding the middle of the crawl's two "
+            "weeks. gpt3 counts words, not pages, in GPT-3's training data, from "
+            "the statistics OpenAI published with it."),
+        "sources": {
+            "languages": "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages",
+            "languages_table": fetched["commoncrawl_languages_csv"]["url"],
+            "crawls": fetched["commoncrawl_collinfo"]["url"],
+            "gpt3_words": fetched["gpt3_languages_by_word_count"]["url"],
+            "read": src["written"][:10],
+        },
+        "names": {code: name for code, name in LANGUAGE_NAMES.items() if code in share},
+        "crawl": {"id": CC_MAIN, "name": main["name"], "from": main["from"][:10],
+                  "to": main["to"][:10], "month": month, "year": year,
+                  "total_pages": main["total_pages"]},
+        "languages": [{"code": row["lang"], "pct": row["pct"]} for row in langs],
+        "series": series,
+        "gpt3": {"commit": g["commit"], "unit": g["unit"], "total_words": g["total_words"],
+                 "words": {k: g[k]["words"] for k in ("en", "nl", "fa")}},
+    }
+
+
 @dataclass
 class Lesson:
     slug: str
@@ -219,6 +360,8 @@ LESSONS = [
            "data/002-tokens.json", tokens_data),
     Lesson("03-parameters", "issues/003-taxi-fare.html",
            "data/003-fares.json", fares_data),
+    Lesson("04-low-resource", "issues/004-low-resource.html",
+           "data/004-low-resource.json", low_resource_data),
 ]
 
 
